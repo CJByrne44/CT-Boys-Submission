@@ -36,7 +36,7 @@ class MyGrid(GridLayout):
         name = self.name.text
         last = self.lastName.text
         email = self.email.text
-
+# Comment test
         print("Name:", name, "Last Name:", last, "Email:", email)
         self.name.text = ""
         self.lastName.text = ""
