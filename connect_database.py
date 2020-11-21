@@ -1,16 +1,8 @@
-from cassandra.cluster import Cluster
-from cassandra.auth import PlainTextAuthProvider
+
 
 import sys
 import csv
-def initDatabase():
-        cloud_config= {
-                'secure_connect_bundle': 'C:\\Users\conne\\PycharmProjects\\kivyProject\\secure-connect-users.zip'
-        }
-        auth_provider = PlainTextAuthProvider('CTBoys', 'CTBoyspassword1')
-        cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider)
-        session = cluster.connect()
-        return session
+from database_functions import initDatabase
 
 session = initDatabase()
 session.execute("USE users")
@@ -21,7 +13,10 @@ with open('people.csv', 'r') as csvFile:
                 idnum = session.execute("SELECT id FROM users")
                 for row in idnum:
                         nums.append(row[0])
-                id = max(nums) + 1
+                if nums == []:
+                        id = 1
+                else:
+                        id = max(nums) + 1
                 stmt = session.prepare("""
                 INSERT INTO users(id, first, last, university, major)
                 VALUES(?, ?, ?, ?, ?)
