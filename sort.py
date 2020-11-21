@@ -38,5 +38,4 @@ if __name__ == '__main__':
     x=find.total_sort(df,name)
     print(connect_database)
     #print(x)
-    #print(x)
->>>>>>> c026b6a3b991879d6c411ec119a68c674e51f645:sort.py
+
