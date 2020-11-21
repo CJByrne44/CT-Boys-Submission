@@ -32,4 +32,5 @@ with open('people.csv', 'r') as csvFile:
 
 rows = session.execute("SELECT * FROM users")
 for row in rows:
-        print(row)
+        for item in row:
+                print(item)
