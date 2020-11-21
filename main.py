@@ -1,9 +1,12 @@
 import kivy
 from kivy.app import App
-from kivy.uix.label import Label
+
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
+from kivymd.app import MDApp
+from kivy.uix.label import MDLabel
+
 
 class MyGrid(GridLayout):
     def __init__(self, **kwargs):
@@ -13,9 +16,11 @@ class MyGrid(GridLayout):
         self.inside = GridLayout()
         self.inside.cols = 2
 
-        self.inside.add_widget(Label(text="First Name: "))
+        self.inside.add_widget(MDLabel(text="First Name: ",halign = 'center',theme_Text_color = 'Custom',
+                                       text_color = (0,1,0,1))
         self.name = TextInput(multiline=False)
         self.inside.add_widget(self.name)
+
 
         self.inside.add_widget(Label(text="Last Name: "))
         self.lastName = TextInput(multiline=False)
@@ -66,7 +71,7 @@ class MyGrid(GridLayout):
         self.gender.text = ""
         self.major.text = ""
         self.email.text = ""
-        ##self.univ.text = ""
+        self.university.text = ""
 
 
 
