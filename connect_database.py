@@ -15,9 +15,9 @@ session.execute("USE users")
 
 with open('people.csv', 'r') as csvFile:
         reader = csv.DictReader(csvFile)
+        test = session.execute("SELECT id FROM users")
+        print(test)
         for line in reader:
-                test = session.execute("SELECT id FROM users")
-                print(test)
                 # session.execute("INSERT INTO users (id, first, last, university, major) VALUES(?, ?, ?, ?, ?)",
                 #            (line['first'], line['last'], line['university'],
                 #             line['major']))
