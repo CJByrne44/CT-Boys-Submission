@@ -24,9 +24,3 @@ with open('people.csv', 'r') as csvFile:
                 """)
                 results = session.execute(stmt, [id, line['first'], line['last'], line['university'], line['major']])
                 #session.execute('INSERT INTO users (id, first, last, university, major) VALUES (?, ?, ?, ?, ?);'(id, line['first'], line['last'], line['university'], line['major']))
-
-
-rows = session.execute("SELECT * FROM users")
-for row in rows:
-        for item in row:
-                print(item)
