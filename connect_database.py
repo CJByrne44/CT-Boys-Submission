@@ -15,12 +15,19 @@ session.execute("USE users")
 
 with open('people.csv', 'r') as csvFile:
         reader = csv.DictReader(csvFile)
-        test = session.execute("SELECT id FROM users")
-        print(test)
         for line in reader:
-                # session.execute("INSERT INTO users (id, first, last, university, major) VALUES(?, ?, ?, ?, ?)",
-                #            (line['first'], line['last'], line['university'],
-                #             line['major']))
+                nums = []
+                idnum = session.execute("SELECT id FROM users")
+                for row in idnum:
+                        nums.append(row[0])
+                id = max(nums) + 1
+                stmt = session.prepare("""
+                INSERT INTO users(id, first, last, university, major)
+                VALUES(?, ?, ?, ?, ?)
+                IF NOT EXISTS
+                """)
+                results = session.execute(stmt, [id, line['first'], line['last'], line['university'], line['major']])
+                #session.execute('INSERT INTO users (id, first, last, university, major) VALUES (?, ?, ?, ?, ?);'(id, line['first'], line['last'], line['university'], line['major']))
 
 
 rows = session.execute("SELECT * FROM users")
