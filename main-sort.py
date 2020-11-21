@@ -30,7 +30,11 @@ class find():
 
 
 if __name__ == '__main__':
+<<<<<<< HEAD
     df = pd.read_csv('C:\Users\ujali\Downloads\SPOILER_people (2).csv')
+=======
+    df = pd.read_csv('people.csv')
+>>>>>>> 684cdc077c035d32167b47d752e872f796604be8
     name=input("Name as last,first(no spaces)")
     #df=find.ref_by_school(df)
     x=find.total_sort(df,name)
