@@ -1,6 +1,18 @@
 import pandas as pd
 import connect_database
 #import DataFrame
+from database_functions import initDatabase
+
+session = initDatabase()
+id = 56
+info = session.execute("SELECT * FROM users WHERE id = 56 ALLOW FILTERING")
+for row in info:
+    id = row[0]
+    first = row[1]
+    last = row[2]
+    major = row[3]
+    university = row[4]
+    print(id, first, last, major, university)
 
 class find():
     def ref_by_school(self,name):
@@ -36,6 +48,6 @@ if __name__ == '__main__':
     name=input("Name as last,first(no spaces)")
     #df=find.ref_by_school(df)
     x=find.total_sort(df,name)
-    print(connect_database)
+    #print(connect_database)
     #print(x)
 
