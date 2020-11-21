@@ -1,13 +1,13 @@
 import kivy
 from kivy.app import App
-
+from kivy.uix.label import Label
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
-from kivymd.app import MDApp
-from kivy.uix.label import MDLabel
+from database_functions import initDatabase
+from database_functions import getID
 
-
+session = initDatabase()
 class MyGrid(GridLayout):
     def __init__(self, **kwargs):
         super(MyGrid, self).__init__(**kwargs)
@@ -16,11 +16,9 @@ class MyGrid(GridLayout):
         self.inside = GridLayout()
         self.inside.cols = 2
 
-        self.inside.add_widget(MDLabel(text="First Name: ",halign = 'center',theme_Text_color = 'Custom',
-                                       text_color = (0,1,0,1))
+        self.inside.add_widget(Label(text="First Name: "))
         self.name = TextInput(multiline=False)
         self.inside.add_widget(self.name)
-
 
         self.inside.add_widget(Label(text="Last Name: "))
         self.lastName = TextInput(multiline=False)
@@ -71,8 +69,15 @@ class MyGrid(GridLayout):
         self.gender.text = ""
         self.major.text = ""
         self.email.text = ""
-        self.university.text = ""
+        ##self.univ.text = ""
 
+        id = getID(session)
+        stmt = session.prepare("""
+                        INSERT INTO users(id, first, last, university, major)
+                        VALUES(?, ?, ?, ?, ?)
+                        IF NOT EXISTS
+                        """)
+        results = session.execute(stmt, [id, name, last, univ, major])
 
 
 
