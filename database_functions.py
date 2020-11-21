@@ -9,3 +9,14 @@ def initDatabase():
     session = cluster.connect()
     session.execute("USE users")
     return session
+
+def getID(session):
+    nums = []
+    idnum = session.execute("SELECT id FROM users")
+    for row in idnum:
+        nums.append(row[0])
+    if nums == []:
+        id = 1
+    else:
+        id = max(nums) + 1
+    return id
