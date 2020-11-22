@@ -82,6 +82,14 @@ class MyGrid(GridLayout):
                         """)
         results = session.execute(stmt, [id, name, last, univ, major])
 
+        stmt2 = session.prepare("""
+                                 SELECT (first, last, university, major) 
+                                 FROM users WHERE university = ? 
+                                 AND major = ? ALLOW FILTERING
+                                """)
+        users = session.execute(stmt2, [univ, major])
+        for row in users:
+            print(row)
 
 
 class TestApp(App):
