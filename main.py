@@ -12,7 +12,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
 
 session = initDatabase()
-
+arr = []
 Builder.load_string("""
 <MainWindow>:
     name: "main"
@@ -75,14 +75,21 @@ Builder.load_string("""
 
         Button:
             text: "Submit"
-            on_press: root.btn()
+            on_press: 
+                root.btn()
             on_release:
                 root.manager.current = "matches"
 
 <Matches>:
     name: "matches"
+    the_list: endResults
     Label:
-        text: "Result"
+        id: endResults
+        text: ""
+    Button:
+        id: resultButton
+        text: "view results"
+        on_press: root.gimme()
 """)
 
 class SignUp(Screen):
@@ -124,14 +131,22 @@ class SignUp(Screen):
         users = session.execute(stmt2, [university, major])
         for row in users:
             if row[0][0] != firstname and row[0][1] != lastname:
-                print(row[0])
-        return
+                arr.append(row[0])
 
 class MainWindow(Screen):
     pass
 
 class Matches(Screen):
-    pass
+    def gimme(self):
+        str1 = ""
+        for x in arr:
+            str1 = str1 + " \n"
+            for y in x:
+                str1 = str1 + y + " "
+        print(str1)
+
+        the_list = ObjectProperty()
+        self.the_list.text = str1
 
 sm = ScreenManager()
 sm.add_widget(MainWindow(name='main'))
