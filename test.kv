@@ -1,4 +1,12 @@
-<MyGrid>
+<MainWindow>:
+    name: "main"
+    Button:
+        text: "Sign Up"
+        on_press:
+            root.manager.current = "matches"
+
+<SignUp>
+    name: "signup"
     firstname: firstname
     lastname: lastname
     gender: gender
@@ -52,6 +60,10 @@
         Button:
             text: "Submit"
             on_press: root.btn()
+            on_release:
+                app.root.current = "matches"
 
-
-
+<Matches>:
+    name: "matches"
+    Label:
+        text: "Result"

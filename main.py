@@ -8,67 +8,105 @@ from database_functions import initDatabase
 from database_functions import getID
 from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
+from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.lang import Builder
 
 session = initDatabase()
 
-class MyGrid(GridLayout):
-    def __init__(self, **kwargs):
-        super(MyGrid, self).__init__(**kwargs)
-        self.cols = 1
+Builder.load_string("""
+<MainWindow>:
+    name: "main"
+    Button:
+        text: "Sign Up"
+        on_release:
+            root.manager.current = "signup"
 
-        self.inside = GridLayout()
-        self.inside.cols = 2
+<SignUp>
+    name: "signup"
+    firstname: firstname
+    lastname: lastname
+    gender: gender
+    email: email
+    university: university
+    major: major
 
-        self.inside.add_widget(Label(text="First Name: "))
-        self.name = TextInput(multiline=False)
-        self.inside.add_widget(self.name)
+    GridLayout:
+        cols:1
+        size: root.width, root.height
 
-        self.inside.add_widget(Label(text="Last Name: "))
-        self.lastName = TextInput(multiline=False)
-        self.inside.add_widget(self.lastName)
+        GridLayout:
+            cols:2
 
-        self.inside.add_widget(Label(text="Gender: "))
-        self.gender = TextInput(multiline=False)
-        self.inside.add_widget(self.gender)
+            Label:
+                text:   "First Name: "
+            TextInput:
+                id: firstname
+                multinline: False
 
-        self.inside.add_widget(Label(text="Email: "))
-        self.email = TextInput(multiline=False)
-        self.inside.add_widget(self.email)
+            Label:
+                text:   "Last Name: "
+            TextInput:
+                id: lastname
+                multinline: False
 
-        self.inside.add_widget(Label(text="University: "))
-        self.university = TextInput(multiline=False)
-        self.inside.add_widget(self.university)
+            Label:
+                text:   "Gender: "
+            TextInput:
+                id: gender
+                multinline: False
 
-        self.inside.add_widget(Label(text="Major "))
-        self.major = TextInput(multiline=False)
-        self.inside.add_widget(self.major)
+            Label:
+                text:   "Email: "
+            TextInput:
+                id: email
+                multinline: False
 
-        self.add_widget(self.inside)
+            Label:
+                text:   "University: "
+            TextInput:
+                id: university
+                multinline: False
 
-        self.submit = Button(text="Submit", font_size=25)
-        self.submit.bind(on_press=self.pressed)
-        self.add_widget(self.submit)
+            Label:
+                text:   "Major: "
+            TextInput:
+                id: major
+                multinline: False
 
-    def pressed(self, instance):
-        name = self.name.text
-        last = self.lastName.text
-        email = self.email.text
+        Button:
+            text: "Submit"
+            on_press: root.btn()
+            on_release:
+                root.manager.current = "matches"
+
+<Matches>:
+    name: "matches"
+    Label:
+        text: "Result"
+""")
+
+class SignUp(Screen):
+    firstname = ObjectProperty(None)
+    lastname =  ObjectProperty(None)
+    gender = ObjectProperty(None)
+    email = ObjectProperty(None)
+    university = ObjectProperty(None)
+    major = ObjectProperty(None)
+
+    def btn(self):
+        firstname = self.firstname.text
+        lastname = self.lastname.text
         gender = self.gender.text
-        univ = self.university.text
         major = self.major.text
-        # Comment test
-        print("Name:\t\t\t\t\t |", name)
-        print("Last Name:\t\t\t\t |", last)
+        university = self.university.text
+        email = self.email.text
+
+        print("First Name:\t\t\t\t|", firstname)
+        print("Last Name:\t\t\t\t |", lastname)
         print("Gender\t\t\t\t\t |", gender)
         print("Major: \t\t\t\t\t |", major)
-        print("University:\t\t\t\t |",univ)
+        print("University:\t\t\t\t |", university)
         print("Email:\t\t\t\t\t |", email)
-        self.name.text = ""
-        self.lastName.text = ""
-        self.gender.text = ""
-        self.major.text = ""
-        self.email.text = ""
-        ##self.univ.text = ""
 
         id = getID(session)
         stmt = session.prepare("""
@@ -76,60 +114,33 @@ class MyGrid(GridLayout):
                         VALUES(?, ?, ?, ?, ?)
                         IF NOT EXISTS
                         """)
-        results = session.execute(stmt, [id, name, last, univ, major])
+        results = session.execute(stmt, [id, firstname, lastname, university, major])
 
         stmt2 = session.prepare("""
                                  SELECT (first, last, university, major) 
                                  FROM users WHERE university = ? 
                                  AND major = ? ALLOW FILTERING
                                 """)
-        users = session.execute(stmt2, [univ, major])
+        users = session.execute(stmt2, [university, major])
         for row in users:
-            if row[0][0] != name and row[0][1] != last:
+            if row[0][0] != firstname and row[0][1] != lastname:
                 print(row[0])
+        return
 
-# class MyGrid(Widget):
-#     firstname = ObjectProperty(None)
-#     lastname =  ObjectProperty(None)
-#     gender = ObjectProperty(None)
-#     email = ObjectProperty(None)
-#     university = ObjectProperty(None)
-#     major = ObjectProperty(None)
-#
-#     def btn(self):
-#         print("First Name:\t\t\t\t|", self.firstname.text)
-#         print("Last Name:\t\t\t\t |", self.lastname.text)
-#         print("Gender\t\t\t\t\t |", self.gender.text)
-#         print("Major: \t\t\t\t\t |", self.major.text)
-#         print("University:\t\t\t\t |", self.university.text)
-#         print("Email:\t\t\t\t\t |", self.email.text)
-#         id = getID(session)
-#         stmt = session.prepare("""
-#                         INSERT INTO users(id, first, last, university, major)
-#                         VALUES(?, ?, ?, ?, ?)
-#                         IF NOT EXISTS
-#                         """)
-#         results = session.execute(stmt, [id, name, last, univ, major])
-#
-#         stmt2 = session.prepare("""
-#                                  SELECT (first, last, university, major)
-#                                  FROM users WHERE university = ?
-#                                  AND major = ? ALLOW FILTERING
-#                                 """)
-#         users = session.execute(stmt2, [univ, major])
-#         for row in users:
-#             print(row)
-#
-# class TestApp(App):
-#     def build(self):
-#
-#         return MyGrid()
+class MainWindow(Screen):
+    pass
 
+class Matches(Screen):
+    pass
+
+sm = ScreenManager()
+sm.add_widget(MainWindow(name='main'))
+sm.add_widget(SignUp(name='signup'))
+sm.add_widget(Matches(name='matches'))
 
 class TestApp(App):
     def build(self):
-
-        return MyGrid()
+        return sm
 
 
 if __name__ == '__main__':
