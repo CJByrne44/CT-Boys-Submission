@@ -1,0 +1,57 @@
+<MyGrid>
+    firstname: firstname
+    lastname: lastname
+    gender: gender
+    email: email
+    university: university
+    major: major
+
+    GridLayout:
+        cols:1
+        size: root.width, root.height
+
+        GridLayout:
+            cols:2
+
+            Label:
+                text:   "First Name: "
+            TextInput:
+                id: firstname
+                multinline: False
+
+            Label:
+                text:   "Last Name: "
+            TextInput:
+                id: lastname
+                multinline: False
+
+            Label:
+                text:   "Gender: "
+            TextInput:
+                id: gender
+                multinline: False
+
+            Label:
+                text:   "Email: "
+            TextInput:
+                id: email
+                multinline: False
+
+            Label:
+                text:   "University: "
+            TextInput:
+                id: university
+                multinline: False
+
+            Label:
+                text:   "Major: "
+            TextInput:
+                id: major
+                multinline: False
+
+        Button:
+            text: "Submit"
+            on_press: root.btn()
+
+
+

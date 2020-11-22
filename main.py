@@ -6,8 +6,11 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 from database_functions import initDatabase
 from database_functions import getID
+from kivy.uix.widget import Widget
+from kivy.properties import ObjectProperty
 
 session = initDatabase()
+
 class MyGrid(GridLayout):
     def __init__(self, **kwargs):
         super(MyGrid, self).__init__(**kwargs)
@@ -39,10 +42,6 @@ class MyGrid(GridLayout):
         self.inside.add_widget(Label(text="Major "))
         self.major = TextInput(multiline=False)
         self.inside.add_widget(self.major)
-
-
-
-
 
         self.add_widget(self.inside)
 
@@ -89,7 +88,42 @@ class MyGrid(GridLayout):
             if row[0][0] != name and row[0][1] != last:
                 print(row[0])
 
-
+# class MyGrid(Widget):
+#     firstname = ObjectProperty(None)
+#     lastname =  ObjectProperty(None)
+#     gender = ObjectProperty(None)
+#     email = ObjectProperty(None)
+#     university = ObjectProperty(None)
+#     major = ObjectProperty(None)
+#
+#     def btn(self):
+#         print("First Name:\t\t\t\t|", self.firstname.text)
+#         print("Last Name:\t\t\t\t |", self.lastname.text)
+#         print("Gender\t\t\t\t\t |", self.gender.text)
+#         print("Major: \t\t\t\t\t |", self.major.text)
+#         print("University:\t\t\t\t |", self.university.text)
+#         print("Email:\t\t\t\t\t |", self.email.text)
+#         id = getID(session)
+#         stmt = session.prepare("""
+#                         INSERT INTO users(id, first, last, university, major)
+#                         VALUES(?, ?, ?, ?, ?)
+#                         IF NOT EXISTS
+#                         """)
+#         results = session.execute(stmt, [id, name, last, univ, major])
+#
+#         stmt2 = session.prepare("""
+#                                  SELECT (first, last, university, major)
+#                                  FROM users WHERE university = ?
+#                                  AND major = ? ALLOW FILTERING
+#                                 """)
+#         users = session.execute(stmt2, [univ, major])
+#         for row in users:
+#             print(row)
+#
+# class TestApp(App):
+#     def build(self):
+#
+#         return MyGrid()
 
 
 class TestApp(App):
