@@ -9,11 +9,6 @@ def initDatabase():
     session = cluster.connect()
     session.execute("USE users")
     return session
-session = initDatabase()
-#session.execute('TRUNCATE users')
-shit = session.execute("SELECT * FROM users")
-for row in shit:
-    print(row)
 def getID(session):
     nums = []
     idnum = session.execute("SELECT id FROM users")
