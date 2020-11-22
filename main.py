@@ -6,6 +6,9 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 from database_functions import initDatabase
 from database_functions import getID
+from kivy.properties import ObjectProperty
+
+
 
 session = initDatabase()
 class MyGrid(GridLayout):
@@ -78,8 +81,6 @@ class MyGrid(GridLayout):
                         IF NOT EXISTS
                         """)
         results = session.execute(stmt, [id, name, last, univ, major])
-
-
 
 
 

@@ -1,5 +1,3 @@
-
-
 import sys
 import csv
 from database_functions import initDatabase
