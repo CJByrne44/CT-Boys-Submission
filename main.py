@@ -82,9 +82,9 @@ class MyGrid(GridLayout):
         stmt2 = session.prepare("""
                                  SELECT (first, last, university, major) 
                                  FROM users WHERE university = ? 
-                                 AND major = ? ALLOW FILTERING
+                                 AND major = ? AND id != ? ALLOW FILTERING
                                 """)
-        users = session.execute(stmt2, [univ, major])
+        users = session.execute(stmt2, [univ, major, id])
         for row in users:
             print(row)
 
