@@ -79,11 +79,11 @@ class MyGrid(GridLayout):
         results = session.execute(stmt, [id, name, last, univ, major])
 
         stmt2 = session.prepare("""
-                                 SELECT (first, last, university, major)
-                                 FROM users WHERE university = ?
-                                 AND major = ? ALLOW FILTERING
+                                 SELECT (first, last, university, major) 
+                                 FROM users WHERE university = ? 
+                                 AND major = ? AND id != ? ALLOW FILTERING
                                 """)
-        users = session.execute(stmt2, [univ, major])
+        users = session.execute(stmt2, [univ, major, id])
         for row in users:
             print(row)
 
@@ -123,6 +123,12 @@ class MyGrid(GridLayout):
 #     def build(self):
 #
 #         return MyGrid()
+
+
+class TestApp(App):
+    def build(self):
+
+        return MyGrid()
 
 
 if __name__ == '__main__':

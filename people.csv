@@ -1,101 +1,101 @@
-First,Last,University,Major
-James,Lopez,Stanford,education
-Charlotte,Miller,Princeton,psychology
-Ava,Anderson,Yale,criminal justice
-Emma,Williams,Duke,biology
-Charlotte,Anderson,Duke,education
-Charlotte,Smith,Stanford,liberal arts
-James,Johnson,Duke,accounting
-James,Brown,Stanford,psychology
-Liam,Smith,Harvard,liberal arts
-Elijah,Anderson,Duke,communications
-Charlotte,Lopez,Stanford,liberal arts
-James,Williams,Yale,business
-Liam,Anderson,Princeton,psychology
-Liam,Williams,Harvard,accounting
-Liam,Hernandez,Duke,liberal arts
-Isabella,Johnson,Yale,nursing
-Olivia,Garcia,Duke,liberal arts
-Sophia,Garcia,Uconn,criminal justice
-Noah,Miller,Uconn,communications
-Isabella,Williams,Harvard,biology
-William,Olson,Princeton,education
-Olivia,Johnson,Stanford,biology
-Noah,Williams,Harvard,business
-Sophia,Anderson,Duke,communications
-Olivia,Brown,Duke,liberal arts
-Elijah,Brown,Duke,business
-Sophia,Lopez,Harvard,liberal arts
-James,Anderson,Stanford,psychology
-Charlotte,Lopez,Yale,business
-Emma,Williams,Yale,computer science
-James,Johnson,Stanford,communications
-Noah,Olson,Yale,criminal justice
-Isabella,Anderson,Duke,criminal justice
-Liam,Anderson,Harvard,accounting
-Elijah,Williams,Uconn,accounting
-Elijah,Miller,Princeton,nursing
-William,Anderson,Stanford,criminal justice
-Emma,Olson,Yale,nursing
-Ava,Miller,Harvard,liberal arts
-James,Williams,Duke,nursing
-Charlotte,Brown,Uconn,business
-Emma,Hernandez,Princeton,business
-William,Hernandez,Princeton,education
-William,Garcia,Harvard,biology
-Olivia,Miller,Duke,nursing
-James,Smith,Uconn,business
-Charlotte,Williams,Duke,biology
-Sophia,Miller,Uconn,psychology
-Charlotte,Garcia,Yale,computer science
-Noah,Brown,Yale,computer science
-Charlotte,Brown,Uconn,computer science
-Isabella,Brown,Uconn,criminal justice
-Emma,Miller,Uconn,business
-James,Miller,Duke,psychology
-Isabella,Hernandez,Harvard,business
-Elijah,Brown,Duke,liberal arts
-Ava,Hernandez,Duke,criminal justice
-Liam,Lopez,Stanford,liberal arts
-William,Olson,Stanford,biology
-Noah,Garcia,Princeton,business
-Liam,Hernandez,Duke,accounting
-Olivia,Lopez,Duke,nursing
-Charlotte,Smith,Yale,liberal arts
-Liam,Lopez,Yale,psychology
-Emma,Lopez,Harvard,psychology
-Sophia,Smith,Yale,criminal justice
-Olivia,Williams,Yale,communications
-Isabella,Olson,Duke,computer science
-Sophia,Anderson,Harvard,education
-Elijah,Miller,Princeton,criminal justice
-Emma,Olson,Princeton,computer science
-Elijah,Anderson,Uconn,biology
-Isabella,Garcia,Uconn,computer science
-Noah,Williams,Uconn,computer science
-Noah,Anderson,Harvard,biology
-James,Lopez,Princeton,nursing
-William,Lopez,Stanford,education
-Isabella,Johnson,Princeton,psychology
-Charlotte,Hernandez,Princeton,business
-Ava,Olson,Uconn,psychology
-Isabella,Garcia,Stanford,communications
-William,Garcia,Uconn,computer science
-Ava,Brown,Princeton,psychology
-Ava,Lopez,Duke,accounting
-William,Olson,Duke,psychology
-Noah,Anderson,Princeton,nursing
-Charlotte,Williams,Stanford,communications
-William,Johnson,Yale,communications
-Ava,Olson,Uconn,communications
-Elijah,Anderson,Stanford,accounting
-Liam,Smith,Harvard,computer science
-Sophia,Garcia,Yale,communications
-Ava,Olson,Uconn,criminal justice
-Elijah,Miller,Stanford,education
-James,Olson,Princeton,criminal justice
-Elijah,Miller,Duke,criminal justice
-Charlotte,Anderson,Princeton,business
-William,Anderson,Stanford,biology
-Liam,Lopez,Uconn,communications
-Emma,Olson,Yale,nursing
+first,last,university,major
+Owen,Williams,Weslyan,Computer Science
+Jane,Lopez,Worchester Polytechnical Institute,Computer Science
+Sabria,Jones,University of Rhode Island,Anthropology
+Ava,Schleicher,UCLA,Communitcations
+Noah,Maher,Stanford,Sports Management
+Sandra,Laemle,Penn State,Design
+Sabria,Biancardi,George Washington University,Political Science
+Charlotte,Temple,Rochester Institute of Technology,Physics
+James,Miller,Boston University,Musical Performance
+Katie,Williams,Pace,English
+Elijah,Piquol,Duke,Design
+Owen,Schleicher,Stanford,Trades
+Emily,Miller,Rochester Institute of Technology,Foreign Languages
+Jack,Pitruzzello,Boston University,Math
+Olivia,Penny,Penn State,Agricultural Sciences
+Olivia,Rinaldi,Yale,Engineering
+Spencer,Reynolds,Boston University,Physics
+Isabella,Williams,New York University,Design
+Emily,Anderson,Princeton,Accounting
+Alexander,Martinet,Harvard,Architecture
+Noah,Mazzanti,Rochester Institute of Technology,Political Science
+Emily,Mazzanti,Harvard,English
+Julia,Rinaldi,University of Rhode Island,Performing Arts
+Sophia,Biancardi,New York University,Directing
+Spencer,Stephan,Rochester Institute of Technology,Physical Therapy
+Pierce,Biancardi,University of Rhode Island,Engineering
+Kristin,Jones,University of Rhode Island,Finance
+Kiyah,Brown,Duke,Performing Arts
+Jessica,Temple,George Washington University,Computer Science
+Jane,Ge,Penn State,Film
+Julia,Mazzanti,Boston University,Musical Performance
+Charlotte,Temple,Harvard,Psychology
+Michael,Selberg,Uconn,Math
+Charlotte,Alsup,Uconn,Food and Nutrition
+William,Stephan,New York University,Directing
+Jane,Smith,University of Rhode Island,Political Science
+Sadie,Olson,Boston University,Psychology
+Jack,Lopez,Worchester Polytechnical Institute,Physics
+Liam,Selberg,Worchester Polytechnical Institute,Business
+Sabria,Brown,Uconn,Art
+Isabella,Johnson,UCLA,Engineering
+Josh,Wondolowski,Worchester Polytechnical Institute,Biology
+Julia,Laemle,UCLA,Environmental Science
+Olivia,Maher,George Washington University,Psychology
+Alexander,Johnson,Yale,Design
+William,Rinaldi,George Washington University,Economics
+Jessica,Reynolds,Rochester Institute of Technology,Political Science
+Sandra,Maher,Duke,Physics
+Josh,Maher,Duke,Musical Performance
+Isabella,Rinaldi,University of Rhode Island,Film
+Erik,Alsup,UCLA,Math
+Sandra,Reynolds,Worchester Polytechnical Institute,Art
+Katie,Temple,Yale,Food and Nutrition
+Emma,Stephan,New York University,Biology
+Jack,Johnson,Princeton,Economics
+Jessica,Ge,Princeton,Foreign Languages
+Isabella,Alsup,Pace,Musical Performance
+Sabria,Brown,Uconn,Health Professions
+Liam,Jones,Worchester Polytechnical Institute,Psychology
+Isabella,Olson,George Washington University,Finance
+Sabria,Smith,Penn State,Political Science
+Kristin,Pitruzzello,Penn State,English
+Josh,Johnson,Yale,Physics
+Owen,Munro,Rochester Institute of Technology,Environmental Science
+Spencer,Munro,University of Rhode Island,History
+Emily,Maher,Duke,Health Professions
+Charlotte,Penny,Weslyan,English
+Jared,Piquol,University of Rhode Island,Anthropology
+Isabella,Johnson,Weslyan,Physical Therapy
+Alexander,Munro,Pace,Biology
+Sydney,Olson,Princeton,Biology
+Owen,Wondolowski,Princeton,Biology
+Ava,Temple,Uconn,Physics
+Josh,Rinaldi,Rochester Institute of Technology,Agricultural Sciences
+Emma,Rinaldi,New York University,Environmental Science
+Jamie,Temple,Yale,Chemistry
+Owen,Ge,Weslyan,Legal Studies
+Emily,Schleicher,George Washington University,Finance
+Isabella,Rinaldi,Berkeley,History
+Summer,Penny,Weslyan,Business
+Emily,Wondolowski,Penn State,Film
+Ava,Rinaldi,Worchester Polytechnical Institute,Psychology
+James,Selberg,Rochester Institute of Technology,Communitcations
+Owen,Ge,Duke,Economics
+Olivia,Smith,Berkeley,Foreign Languages
+Noah,Biancardi,Princeton,Environmental Science
+Michael,Mazzanti,George Washington University,Education
+Jessica,Munro,Duke,Engineering
+Kyle,Ge,Weslyan,Education
+Jane,Ge,Yale,Physical Therapy
+Jared,Alsup,Princeton,Music
+Josh,Anderson,Berkeley,Anthropology
+Sydney,Penny,Harvard,Agricultural Sciences
+Jessica,Alsup,Uconn,Design
+Pierce,Williams,George Washington University,Trades
+Sydney,Maher,Uconn,Legal Studies
+Noah,Martinet,Penn State,Nursing
+Jane,Stephan,Uconn,Legal Studies
+Luke,Smith,Princeton,Food and Nutrition
+Julia,Laemle,University of Rhode Island,Business

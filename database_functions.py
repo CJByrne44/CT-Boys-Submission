@@ -9,7 +9,6 @@ def initDatabase():
     session = cluster.connect()
     session.execute("USE users")
     return session
-
 def getID(session):
     nums = []
     idnum = session.execute("SELECT id FROM users")
